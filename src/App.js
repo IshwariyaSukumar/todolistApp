@@ -1,10 +1,11 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import "./App.css";
 import TodoItem from "./components/TodoItem";
-import Status from './components/Status';
+import Status from "./components/Status";
 import { addTodo,removeTodo,completedTodo } from "./features/TodoSlice";
 import {  useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux/es/exports";
+
 
 function App() {
   
@@ -23,6 +24,10 @@ function App() {
   };
   const handleCompletion=(id,input)=>{
     dispatch(completedTodo(id,input));
+  }
+  const [value,setValue]=useState('1');
+  const handleChange=(event=React.SyntheticEvent, newValue=String)=>{
+      setValue(newValue);
   }
 
   return (
@@ -45,12 +50,15 @@ function App() {
 
         ))}
         {count===0 && <p>No Todos</p>}
-        <Status all={handleAddTodo} />
        
       </div>
-         
-         
       
+         <Status/> 
+       
+     
+         
+         
+  
       
     </div>
   );

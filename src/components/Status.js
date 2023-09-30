@@ -1,8 +1,8 @@
 
-import { Box,Tab} from '@mui/material';
-import {TabContext,TabList, TabPanel} from '@mui/lab';
-import React, {useState} from 'react';
 
+import React, {useState} from 'react';
+import { Tab,Box } from '@mui/material';
+import {TabContext,TabList,TabPanel} from '@mui/lab';
 
 
 
@@ -22,8 +22,7 @@ export const Status =(props) => {
         props.incomplete(props.id);
       }
   return (
-    <Box>
-   <TabContext value={value}>
+<TabContext value={value}>
   <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
     <TabList onChange={handleChange} aria-label="lab API tabs example">
       <Tab label="All" value="1" />
@@ -31,13 +30,10 @@ export const Status =(props) => {
       <Tab label="Incomplete" value="3" />
     </TabList>
   </Box>
-  <TabPanel value="1">{allTodo}</TabPanel>
+  <TabPanel value="1"></TabPanel>
   <TabPanel value="2"></TabPanel>
   <TabPanel value="3"></TabPanel>
 </TabContext>
-
-</Box>
-
   )
 }
 export default Status;
