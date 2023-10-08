@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
     count:0,
     todos:[],
+    
 };
 
 export const todoSlice=createSlice(
@@ -18,17 +19,13 @@ export const todoSlice=createSlice(
               state.todos.push(todo);
               state.count+=1
             },
-
-            removeTodo: (state,action)=>{
-              state.todos=state.todos.filter((todo)=>todo.id!==action.payload);
-              state.count-=1;
-            },
-            completedTodo:(state,action)=>{
-              state.todos=state.todos.filter((todo)=>todo.id===action.payload);
-            }
+           
+           
+          
+           
         },
 
     });
 
-    export const {addTodo, removeTodo,completedTodo} =todoSlice.actions;
+    export const {addTodo} =todoSlice.actions;
     export default todoSlice.reducer;
